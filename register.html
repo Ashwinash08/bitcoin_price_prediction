@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Bitcoin Price Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="auth-container">
+        <div class="card auth-card">
+            <div class="logo center-logo">
+                <i class="fa-brands fa-bitcoin"></i> Bitcoin Price Prediction
+            </div>
+            
+            <div class="auth-header">
+                <h2>Create Account</h2>
+                <p>Start your AI-driven prediction journey</p>
+            </div>
+
+            <form class="auth-form" id="register-form">
+                <div id="auth-message" style="text-align: center; font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;"></div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-user"></i> Full Name</label>
+                    <input type="text" class="form-control" id="reg-name" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+                    <input type="email" class="form-control" id="reg-email" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fa-solid fa-lock"></i> Password</label>
+                    <input type="password" class="form-control" id="reg-password" placeholder="••••••••" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-shield-halved"></i> Confirm Password</label>
+                    <input type="password" class="form-control" id="reg-confirm" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="primary-btn btn-block">
+                    Register <i class="fa-solid fa-user-plus"></i>
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

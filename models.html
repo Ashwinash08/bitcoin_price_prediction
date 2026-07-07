@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Models | Bitcoin Price Prediction</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-bitcoin"></i> Bitcoin Price Prediction
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="models.html" class="active">Models</a>
+            <a href="altcoins.html">Other Cryptos</a>
+        </div>
+        <div class="user-profile">
+            <a href="login.html" class="login-btn"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <header class="dashboard-header">
+            <div>
+                <h1>Predictive AI Models</h1>
+                <p>Select a specialized machine learning model to forecast Bitcoin prices</p>
+            </div>
+        </header>
+
+        <section class="models-container">
+            <!-- Sidebar for Model Selection -->
+            <div class="models-sidebar">
+                <div class="card model-list-card">
+                    <div class="card-header">
+                        <h3>Available Architectures</h3>
+                    </div>
+                    <div class="model-options">
+                        <button class="model-select-btn active" data-model="lstm">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <div class="model-info">
+                                <strong>LSTM Neural Net</strong>
+                                <span>Long Short-Term Memory</span>
+                            </div>
+                        </button>
+                        <button class="model-select-btn" data-model="arima">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <div class="model-info">
+                                <strong>ARIMA</strong>
+                                <span>Time-series Forecasting</span>
+                            </div>
+                        </button>
+                        <button class="model-select-btn" data-model="prophet">
+                            <i class="fa-solid fa-eye"></i>
+                            <div class="model-info">
+                                <strong>Facebook Prophet</strong>
+                                <span>Trend & Seasonality</span>
+                            </div>
+                        </button>
+                        <button class="model-select-btn" data-model="xgboost">
+                            <i class="fa-solid fa-tree"></i>
+                            <div class="model-info">
+                                <strong>XGBoost Regressor</strong>
+                                <span>Gradient Boosting Decision</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Panel for Model details and execution -->
+            <div class="model-execution">
+                <div class="card execution-card">
+                    <div class="model-details-header">
+                        <h2 id="selected-model-title">LSTM Neural Net</h2>
+                        <span class="badge accuracy-badge"><i class="fa-solid fa-check-circle"></i> 91.2% Accuracy</span>
+                    </div>
+                    <p id="selected-model-desc" class="model-description">
+                        LSTM (Long Short-Term Memory) is highly effective at capturing long-term dependencies in sequential data like crypto stock prices, identifying patterns that most traditional models miss.
+                    </p>
+                    
+                    <div class="model-controls">
+                        <div class="parameter-group">
+                            <label>Training Epochs</label>
+                            <input type="range" min="10" max="200" value="50" class="slider" id="epochs-slider">
+                            <span id="epochs-val">50</span>
+                        </div>
+                        <div class="parameter-group">
+                            <label>Forecast Horizon</label>
+                            <select class="custom-select">
+                                <option>Next 24 Hours</option>
+                                <option>Next 7 Days</option>
+                                <option>Next 30 Days</option>
+                            </select>
+                        </div>
+                        <button id="run-model-btn" class="primary-btn run-model-action">
+                            <i class="fa-solid fa-play"></i> Run Model Now
+                        </button>
+                    </div>
+
+                    <!-- Results Area -->
+                    <div class="model-results-area" id="model-results" style="display: none;">
+                        <hr class="divider">
+                        <h3>Model Output Forecast</h3>
+                        <div class="chart-container model-chart">
+                            <canvas id="modelForecastChart"></canvas>
+                        </div>
+                        <div class="results-summary">
+                            <div class="stat-item inline-stat">
+                                <span>Target</span>
+                                <strong id="model-target" class="positive">--</strong>
+                            </div>
+                            <div class="stat-item inline-stat">
+                                <span>MAE (Error)</span>
+                                <strong>₹11,898.75</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="models.js"></script>
+</body>
+</html>

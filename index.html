@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Price Prediction</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-bitcoin"></i> Bitcoin Price Prediction
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="models.html">Models</a>
+            <a href="altcoins.html">Other Cryptos</a>
+        </div>
+        <div class="user-profile">
+            <a href="login.html" class="login-btn"><i class="fa-solid fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <header class="dashboard-header">
+            <div>
+                <h1>Bitcoin (BTC) Price Prediction</h1>
+                <p>Advanced AI-driven forecasting and market analysis</p>
+            </div>
+            <div class="live-price-container">
+                <span class="label">Live Price</span>
+                <h2 id="current-price">Loading...</h2>
+                <div id="price-change" class="change">--</div>
+            </div>
+        </header>
+
+        <section class="grid-container">
+            <!-- Main Chart Area -->
+            <div class="card chart-card">
+                <div class="card-header">
+                    <h3>Price Trends & AI Forecast</h3>
+                    <div class="timeframe-selector">
+                        <button class="active" data-tf="30d">30D</button>
+                        <button data-tf="7d">7D</button>
+                        <button data-tf="24h">24H</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="btcChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Prediction Panel Area -->
+            <div class="side-panel">
+                <div class="card prediction-card">
+                    <div class="card-header">
+                        <h3 id="prediction-title">Next 1 Day Prediction <i class="fa-solid fa-wand-magic-sparkles highlight-icon"></i></h3>
+                        <div>
+                            <label style="font-size: 0.8rem; color: var(--text-secondary);">Days:</label>
+                            <input type="number" id="predict-days" value="1" min="1" max="90" style="width: 60px; padding: 0.3rem; border-radius: 6px; background: rgba(0,0,0,0.05); border: 1px solid var(--border-color); color: var(--text-primary); margin-left: 0.3rem; font-family: inherit; text-align: center;">
+                        </div>
+                    </div>
+                    <div class="prediction-content">
+                        <div class="pred-main">
+                            <span class="pred-label">Target Price</span>
+                            <h2 id="predicted-price" class="gradient-text">Analyzing...</h2>
+                        </div>
+                        <div class="pred-details">
+                            <div class="detail-item">
+                                <span>Confidence</span>
+                                <strong id="confidence-score">--%</strong>
+                            </div>
+                            <div class="detail-item">
+                                <span>Trend Sentiment</span>
+                                <strong id="trend-sentiment" class="positive">--</strong>
+                            </div>
+                        </div>
+                        <button id="run-prediction-btn" class="primary-btn">
+                            <i class="fa-solid fa-microchip"></i> Run Deep Analysis
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card market-stats-card">
+                    <div class="card-header">
+                        <h3>Market Metrics</h3>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            <div class="stat-info">
+                                <span>24h Volatility</span>
+                                <strong id="volatility">--%</strong>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <div class="stat-info">
+                                <span>RSI (14)</span>
+                                <strong id="rsi-val">--</strong>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <div class="stat-info">
+                                <span>Dominance</span>
+                                <strong>51.4%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
